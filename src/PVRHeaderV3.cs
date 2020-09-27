@@ -15,7 +15,7 @@ namespace CSharp_PVR
 		PreMultiplied = 0x02
 	}
 
-	public enum PixelFormat : ulong
+	public enum PixelFormatV3 : ulong
 	{
 		PVRTC2bppRGB = 0,
 		PVRTC2bppRGBA = 1,
@@ -104,7 +104,7 @@ namespace CSharp_PVR
 		public const uint notMatchingEndianness = 0x50565203;
 
 		private readonly TextureFlags textureFlags;
-		private readonly PixelFormat pixelFormat;
+		private readonly PixelFormatV3 pixelFormat;
 		private readonly ColorSpace colorSpace;
 		private readonly ChannelType channelType;
 
@@ -124,7 +124,7 @@ namespace CSharp_PVR
 			return this.textureFlags;
 		}
 
-		public PixelFormat GetPixelFormat()
+		public PixelFormatV3 GetPixelFormat()
 		{
 			return this.pixelFormat;
 		}
@@ -225,9 +225,9 @@ namespace CSharp_PVR
 
 			ulong pixelFormatUlong = BitConverter.ToUInt64(inputBytes, currentIndex);
 
-			if (Enum.IsDefined(typeof(PixelFormat), pixelFormatUlong))
+			if (Enum.IsDefined(typeof(PixelFormatV3), pixelFormatUlong))
 			{
-				this.pixelFormat = (PixelFormat)pixelFormatUlong;
+				this.pixelFormat = (PixelFormatV3)pixelFormatUlong;
 			}
 			else
 			{
