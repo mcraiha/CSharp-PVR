@@ -12,7 +12,7 @@ namespace tests
 		}
 
 		[Test]
-		public void ReadAndParse4bppPvrtvPvrTest()
+		public void ReadAndParse4bppPvrtcPvrTest()
 		{
 			// Arrange
 			byte[] inputBytes = File.ReadAllBytes("hotair.4bpp.pvr");
