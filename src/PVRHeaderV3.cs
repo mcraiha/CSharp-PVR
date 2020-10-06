@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 
 namespace CSharp_PVR
 {
@@ -188,6 +189,11 @@ namespace CSharp_PVR
 		public uint GetMetadataSizeInBytes()
 		{
 			return this.metaDataSizeInBytes;
+		}
+
+		public PVRHeaderV3(Stream inputStream)
+		{
+
 		}
 
 		public PVRHeaderV3(byte[] inputBytes)

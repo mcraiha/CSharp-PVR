@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 
 namespace CSharp_PVR
 {
@@ -11,6 +12,11 @@ namespace CSharp_PVR
 		public PVRHeaderV3 GetHeader()
 		{
 			return this.headerV3;
+		}
+
+		public PVRContainerV3(Stream inputStream)
+		{
+
 		}
 
 		public PVRContainerV3(byte[] inputBytes)
