@@ -18,10 +18,10 @@ namespace tests
 			FileStream fs = new FileStream("256x256_opaque_rg_pvrtc_4bpp.pvr", FileMode.Open);
 
 			// Act
-			PVRHeaderV2 header = new PVRHeaderV2(fs);
+			PVRContainerV2 container = new PVRContainerV2(fs);
 
 			// Assert
-			Assert.AreEqual(256, header.GetWidth());
+			Assert.AreEqual(256, container.GetHeader().GetWidth());
 		}
 	}
 }
