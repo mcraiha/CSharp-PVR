@@ -139,6 +139,15 @@ namespace CSharp_PVR
 			return this.flags[0];
 		}
 
+		/// <summary>
+		/// This is a 32bit unsigned integer representing the number of bytes per single surface within the texture.
+		/// </summary>
+		/// <returns>Surface size</returns>
+		public uint GetSurfaceSize()
+		{
+			return this.surfaceSize;
+		}
+
 		public PVRHeaderV2(Stream input)
 		{
 			if (input == null)
