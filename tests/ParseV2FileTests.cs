@@ -29,6 +29,10 @@ namespace tests
 			Assert.IsFalse(header.AreMipMapsPresentFlag());
 			Assert.AreEqual(32768, header.GetSurfaceSize());
 			Assert.AreEqual(4, header.GetBitsPerPixel());
+			Assert.AreEqual(0, header.GetRedChannelMaskAsUint());
+			Assert.AreEqual(0, header.GetGreenChannelMaskAsUint());
+			Assert.AreEqual(0, header.GetBlueChannelMaskAsUint());
+			Assert.AreEqual(0, header.GetAlphaChannelMaskAsUint());
 		}
 	}
 }

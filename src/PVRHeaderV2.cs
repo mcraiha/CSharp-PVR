@@ -157,6 +157,42 @@ namespace CSharp_PVR
 			return this.bitsPerPixel;
 		}
 
+		/// <summary>
+		/// Each of the Red, Green, Blue and Alpha channel masks are used to determine the bits occupied by each channel in a colour format. Each mask is a bitfield value where a value of 1 indicates that this bit is used by the relevant channel.
+		/// </summary>
+		/// <returns></returns>
+		public uint GetRedChannelMaskAsUint()
+		{
+			return this.redChannelMaskAsUint;
+		}
+
+		/// <summary>
+		/// Each of the Red, Green, Blue and Alpha channel masks are used to determine the bits occupied by each channel in a colour format. Each mask is a bitfield value where a value of 1 indicates that this bit is used by the relevant channel.
+		/// </summary>
+		/// <returns></returns>
+		public uint GetGreenChannelMaskAsUint()
+		{
+			return this.greenChannelMaskAsUint;
+		}
+
+		/// <summary>
+		/// Each of the Red, Green, Blue and Alpha channel masks are used to determine the bits occupied by each channel in a colour format. Each mask is a bitfield value where a value of 1 indicates that this bit is used by the relevant channel.
+		/// </summary>
+		/// <returns></returns>
+		public uint GetBlueChannelMaskAsUint()
+		{
+			return this.blueChannelMaskAsUint;
+		}
+
+		/// <summary>
+		/// Each of the Red, Green, Blue and Alpha channel masks are used to determine the bits occupied by each channel in a colour format. Each mask is a bitfield value where a value of 1 indicates that this bit is used by the relevant channel.
+		/// </summary>
+		/// <returns></returns>
+		public uint GetAlphaChannelMaskAsUint()
+		{
+			return this.alphaChannelMaskAsUint;
+		}
+
 		public PVRHeaderV2(Stream input)
 		{
 			if (input == null)
