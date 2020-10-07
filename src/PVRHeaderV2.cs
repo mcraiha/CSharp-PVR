@@ -148,6 +148,15 @@ namespace CSharp_PVR
 			return this.surfaceSize;
 		}
 
+		/// <summary>
+		/// This is a 32bit unsigned integer representing the total number of bits of data that make up a single pixel.
+		/// </summary>
+		/// <returns></returns>
+		public uint GetBitsPerPixel()
+		{
+			return this.bitsPerPixel;
+		}
+
 		public PVRHeaderV2(Stream input)
 		{
 			if (input == null)

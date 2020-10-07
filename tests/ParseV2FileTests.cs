@@ -28,6 +28,7 @@ namespace tests
 			Assert.AreEqual(PixelFormatV2.PVRTC4_2, header.GetPixelFormat());
 			Assert.IsFalse(header.AreMipMapsPresentFlag());
 			Assert.AreEqual(32768, header.GetSurfaceSize());
+			Assert.AreEqual(4, header.GetBitsPerPixel());
 		}
 	}
 }
