@@ -26,6 +26,7 @@ namespace tests
 			Assert.AreEqual(256, header.GetHeight());
 			Assert.AreEqual(0, header.GetMipMapCount());
 			Assert.AreEqual(PixelFormatV2.PVRTC4_2, header.GetPixelFormat());
+			Assert.IsFalse(header.AreMipMapsPresentFlag());
 		}
 	}
 }

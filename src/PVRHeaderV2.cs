@@ -130,6 +130,15 @@ namespace CSharp_PVR
 			return this.mipMapCount;
 		}
 
+		/// <summary>
+		/// Flags say MIP-Maps are present
+		/// </summary>
+		/// <returns>True if are present; False otherwise</returns>
+		public bool AreMipMapsPresentFlag()
+		{
+			return this.flags[0];
+		}
+
 		public PVRHeaderV2(Stream input)
 		{
 			if (input == null)
