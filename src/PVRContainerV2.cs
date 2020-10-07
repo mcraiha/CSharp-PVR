@@ -16,6 +16,15 @@ namespace CSharp_PVR
 		public PVRContainerV2(Stream inputStream)
 		{
 			this.headerV2 = new PVRHeaderV2(inputStream);
+			uint howManyBytesToRead = this.headerV2.GetSurfaceSize();
+			this.textureData = new byte[(int)howManyBytesToRead];
+			int offset = 0;
+			while (howManyBytesToRead > 0)
+			{
+				int readAmount = inputStream.Read(this.textureData, offset, (int)howManyBytesToRead);
+				howManyBytesToRead -= (uint)readAmount;
+				offset += readAmount;
+			}
 		}
 
 		public PVRContainerV2(byte[] inputBytes)

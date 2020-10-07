@@ -202,14 +202,14 @@ namespace CSharp_PVR
 			return this.numberOfSurfaces;
 		}
 
-		public PVRHeaderV2(Stream input)
+		public PVRHeaderV2(Stream input, bool leaveStreamOpen = true)
 		{
 			if (input == null)
 			{
 				throw new ArgumentNullException("Input is null");
 			}
 
-			using (BinaryReader reader = new BinaryReader(input))
+			using (BinaryReader reader = new BinaryReader(input, System.Text.Encoding.UTF8, leaveOpen: true))
 			{
 				uint readHeaderSize = reader.ReadUInt32();
 
