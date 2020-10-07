@@ -193,6 +193,15 @@ namespace CSharp_PVR
 			return this.alphaChannelMaskAsUint;
 		}
 
+		/// <summary>
+		/// The number of surfaces is a 32bit unsigned integer, signifying the number of distinct surfaces in the texture data. A distinct surface is either a cube map face, a slice of a volume texture, or a member of a texture array, depending on the flags
+		/// </summary>
+		/// <returns>Number of surfaces</returns>
+		public uint GetNumberOfSurfaces()
+		{
+			return this.numberOfSurfaces;
+		}
+
 		public PVRHeaderV2(Stream input)
 		{
 			if (input == null)

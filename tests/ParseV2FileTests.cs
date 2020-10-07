@@ -33,6 +33,7 @@ namespace tests
 			Assert.AreEqual(0, header.GetGreenChannelMaskAsUint());
 			Assert.AreEqual(0, header.GetBlueChannelMaskAsUint());
 			Assert.AreEqual(0, header.GetAlphaChannelMaskAsUint());
+			Assert.AreEqual(0, header.GetNumberOfSurfaces());
 		}
 	}
 }
