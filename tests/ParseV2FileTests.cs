@@ -19,9 +19,12 @@ namespace tests
 
 			// Act
 			PVRContainerV2 container = new PVRContainerV2(fs);
+			PVRHeaderV2 header = container.GetHeader();
 
 			// Assert
-			Assert.AreEqual(256, container.GetHeader().GetWidth());
+			Assert.AreEqual(256, header.GetWidth());
+			Assert.AreEqual(256, header.GetHeight());
+			Assert.AreEqual(0, header.GetMipMapCount());
 		}
 	}
 }

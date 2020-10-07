@@ -112,6 +112,15 @@ namespace CSharp_PVR
 			return this.height;
 		}
 
+		/// <summary>
+		/// MIP-Map Count is a 32bit unsigned integer representing the number of MIP-Map levels present, excluding the top level. A value of zero, therefore, means that only the top level texture exists. If this value is anything other than 0, the MIP Map flag should be set
+		/// </summary>
+		/// <returns>Mip-Map count</returns>
+		public uint GetMipMapCount()
+		{
+			return this.mipMapCount;
+		}
+
 		public PVRHeaderV2(Stream input)
 		{
 			if (input == null)
