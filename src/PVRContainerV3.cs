@@ -32,6 +32,8 @@ namespace CSharp_PVR
 			}
 
 			this.headerV3 = new PVRHeaderV3(inputBytes);
+
+			this.metadataV3 = new PVRMetadataV3(inputBytes, 52, (int)this.headerV3.GetMetadataSizeInBytes());
 		}
 	}
 }
