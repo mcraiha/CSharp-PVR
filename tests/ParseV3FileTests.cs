@@ -23,6 +23,14 @@ namespace tests
 
 			// Assert
 			Assert.AreEqual(512, header.GetWidth());
+			Assert.AreEqual(512, header.GetHeight());
+			Assert.AreEqual(1, header.GetDepth());
+
+			Assert.AreEqual(1, header.GetNumberOfSurfaces());
+			Assert.AreEqual(1, header.GetNumberOfFaces());
+
+			Assert.AreEqual(10, header.GetMipMapCount());
+			Assert.AreEqual(15, header.GetMetadataSizeInBytes());
 		}
 	}
 }

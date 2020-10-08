@@ -176,16 +176,28 @@ namespace CSharp_PVR
 			return this.numSurfaces;
 		}
 
+		/// <summary>
+		/// Num. Faces is a 32-bit unsigned integer that represents the number of faces in a cubemap.
+		/// </summary>
+		/// <returns>Number of faces</returns>
 		public uint GetNumberOfFaces()
 		{
 			return this.numFaces;
 		}
 
+		/// <summary>
+		/// MIP-Map Count is a 32-bit unsigned integer representing the number of MIP-Map levels present including the top level. A value of one, therefore, means that only the top level texture exists.
+		/// </summary>
+		/// <returns>Mip-map count</returns>
 		public uint GetMipMapCount()
 		{
 			return this.mipMapCount;
 		}
 
+		/// <summary>
+		/// Meta Data Size is a 32-bit unsigned integer representing the total size (in bytes) of all the metadata following the header.
+		/// </summary>
+		/// <returns>Metadata size</returns>
 		public uint GetMetadataSizeInBytes()
 		{
 			return this.metaDataSizeInBytes;
