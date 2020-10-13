@@ -14,6 +14,11 @@ namespace CSharp_PVR
 			return this.headerV3;
 		}
 
+		public PVRMetadataV3 GetMetadata()
+		{
+			return this.metadataV3;
+		}
+
 		public PVRContainerV3(Stream inputStream)
 		{
 

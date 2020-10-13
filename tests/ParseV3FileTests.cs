@@ -20,6 +20,7 @@ namespace tests
 			// Act
 			PVRContainerV3 pvr = new PVRContainerV3(inputBytes);
 			PVRHeaderV3 header = pvr.GetHeader();
+			PVRMetadataV3 metadata = pvr.GetMetadata();
 
 			// Assert
 			Assert.AreEqual(512, header.GetWidth());
@@ -31,6 +32,9 @@ namespace tests
 
 			Assert.AreEqual(10, header.GetMipMapCount());
 			Assert.AreEqual(15, header.GetMetadataSizeInBytes());
+
+			Assert.AreEqual(1, metadata.GetElements().Length);
+			Assert.AreEqual(MetadataTypeV3.LogicalOrientation, metadata.GetElements()[0].GetMetadataType());
 		}
 	}
 }

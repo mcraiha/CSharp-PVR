@@ -1,10 +1,17 @@
 using System;
+using System.Collections.Generic;
 
 namespace CSharp_PVR
 {
 	sealed public class PVRMetadataV3
 	{
 		private readonly PVRMetadataElementV3[] elements;
+
+		public PVRMetadataElementV3[] GetElements()
+		{
+			return this.elements;
+		}
+
 		public PVRMetadataV3(byte[] inputBytes, int startPos, int length)
 		{
 			if (inputBytes == null)
@@ -29,6 +36,25 @@ namespace CSharp_PVR
 			{
 				throw new ArgumentException($"Start position + Length would index over the input bytes!");
 			}
+
+			// No metadata
+			if (length == 0)
+			{
+				this.elements = new PVRMetadataElementV3[0];
+				return;
+			}
+
+			List<PVRMetadataElementV3> elements = new List<PVRMetadataElementV3>();
+
+			int currentPos = startPos;
+			while (currentPos - startPos < length)
+			{
+				int readThisMuch = PVRMetadataElementV3.GetHowMuchToReadInBytes(inputBytes, currentPos);
+				elements.Add(new PVRMetadataElementV3(inputBytes, currentPos, readThisMuch));
+				currentPos += readThisMuch;
+			}
+			
+			this.elements = elements.ToArray();
 		}
 	}
 }
