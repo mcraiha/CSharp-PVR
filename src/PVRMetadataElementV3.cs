@@ -52,7 +52,7 @@ namespace CSharp_PVR
 
 		public PVRMetadataElementV3(Stream inputStream, bool leaveStreamOpen = true)
 		{
-			using (BinaryReader reader = new BinaryReader(inputStream, System.Text.Encoding.UTF8, leaveOpen: true))
+			using (BinaryReader reader = new BinaryReader(inputStream, System.Text.Encoding.UTF8, leaveOpen: leaveStreamOpen))
 			{
 				byte[] fourCC = reader.ReadBytes(4);
 				if (!StructuralComparisons.StructuralEqualityComparer.Equals(onlyValidFourcc, fourCC))
