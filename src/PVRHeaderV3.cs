@@ -205,7 +205,91 @@ namespace CSharp_PVR
 
 		public PVRHeaderV3(Stream inputStream)
 		{
+			if (inputStream == null)
+			{
+				throw new NullReferenceException("inputStream is null");
+			}
 
+			if (!inputStream.CanRead)
+			{
+				throw new ArgumentException("inputStream must be readable");
+			}
+
+			using (BinaryReader reader = new BinaryReader(inputStream, System.Text.Encoding.UTF8, leaveOpen: true))
+			{
+				uint endianness = reader.ReadUInt32();
+				bool swapEndianness = false;
+				if (endianness == matchingEndianness)
+				{
+
+				}
+				else if (endianness == notMatchingEndianness)
+				{
+					swapEndianness = true;
+				}
+				else
+				{
+					throw new ArgumentException($"Incorrect endian value {endianness}");
+				}
+
+				uint textureFlagsUint = reader.ReadUInt32();
+
+				if (Enum.IsDefined(typeof(TextureFlags), textureFlagsUint))
+				{
+					this.textureFlags = (TextureFlags)textureFlagsUint;
+				}
+				else
+				{
+					throw new ArgumentException($"Incorrect flags value {textureFlagsUint}");
+				}
+
+				ulong pixelFormatUlong = reader.ReadUInt64();
+
+				if (Enum.IsDefined(typeof(PixelFormatV3), pixelFormatUlong))
+				{
+					this.pixelFormat = (PixelFormatV3)pixelFormatUlong;
+				}
+				else
+				{
+					throw new ArgumentException($"Incorrect pixel format value {pixelFormatUlong}");
+				}
+
+				uint colorSpaceUint = reader.ReadUInt32();
+
+				if (Enum.IsDefined(typeof(ColorSpace), colorSpaceUint))
+				{
+					this.colorSpace = (ColorSpace)colorSpaceUint;
+				}
+				else
+				{
+					throw new ArgumentException($"Incorrect color space value {colorSpaceUint}");
+				}
+
+				uint channelTypeUint = reader.ReadUInt32();
+
+				if (Enum.IsDefined(typeof(ChannelType), channelTypeUint))
+				{
+					this.channelType = (ChannelType)channelTypeUint;
+				}
+				else
+				{
+					throw new ArgumentException($"Incorrect channel type value {channelTypeUint}");
+				}
+
+				this.height = reader.ReadUInt32();
+
+				this.width = reader.ReadUInt32();
+
+				this.depth = reader.ReadUInt32();
+
+				this.numSurfaces = reader.ReadUInt32();
+
+				this.numFaces = reader.ReadUInt32();
+
+				this.mipMapCount = reader.ReadUInt32();
+
+				this.metaDataSizeInBytes = reader.ReadUInt32();
+			}
 		}
 
 		public PVRHeaderV3(byte[] inputBytes)

@@ -21,7 +21,19 @@ namespace CSharp_PVR
 
 		public PVRContainerV3(Stream inputStream)
 		{
+			if (inputStream == null)
+			{
+				throw new NullReferenceException("inputStream is null");
+			}
 
+			if (!inputStream.CanRead)
+			{
+				throw new ArgumentException("inputStream must be readable");
+			}
+
+			this.headerV3 = new PVRHeaderV3(inputStream);
+
+			this.metadataV3 = new PVRMetadataV3(inputStream, (int)this.headerV3.GetMetadataSizeInBytes());
 		}
 
 		public PVRContainerV3(byte[] inputBytes)

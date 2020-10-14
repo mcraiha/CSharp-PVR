@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 
 namespace CSharp_PVR
@@ -10,6 +11,43 @@ namespace CSharp_PVR
 		public PVRMetadataElementV3[] GetElements()
 		{
 			return this.elements;
+		}
+
+		public PVRMetadataV3(Stream inputStream, int length)
+		{
+			if (inputStream == null)
+			{
+				throw new NullReferenceException("inputStream is null");
+			}
+
+			if (!inputStream.CanRead)
+			{
+				throw new ArgumentException("inputStream must be readable");
+			}
+
+			if (length < 0)
+			{
+				throw new ArgumentException($"Length cannot be negative!");
+			}
+
+			// No metadata
+			if (length == 0)
+			{
+				this.elements = new PVRMetadataElementV3[0];
+				return;
+			}
+
+			List<PVRMetadataElementV3> elements = new List<PVRMetadataElementV3>();
+
+			long startPos = inputStream.Position;
+			long currentPos = startPos;
+			while (currentPos - startPos < length)
+			{
+				elements.Add(new PVRMetadataElementV3(inputStream));
+				currentPos = inputStream.Position;
+			}
+			
+			this.elements = elements.ToArray();
 		}
 
 		public PVRMetadataV3(byte[] inputBytes, int startPos, int length)
