@@ -28,8 +28,6 @@ namespace CSharp_PVR
 
 		private readonly MetadataTypeV3 dataType;
 
-		private readonly int sizeInBytes;
-
 		private readonly byte[] dataAsByteArray;
 
 		/// <summary>
