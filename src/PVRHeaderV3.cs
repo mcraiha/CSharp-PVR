@@ -390,5 +390,19 @@ namespace CSharp_PVR
 
 			this.metaDataSizeInBytes = BitConverter.ToUInt32(inputBytes, currentIndex);
 		}
+
+		public static int CalculateBytesOfData(PixelFormatV3 pixelFormat, int width, int height)
+		{
+			if (pixelFormat == PixelFormatV3.PVRTC2bppRGB || pixelFormat == PixelFormatV3.PVRTC2bppRGBA)
+			{
+				return (width * height / 4);
+			}
+			else if (pixelFormat == PixelFormatV3.PVRTC4bppRGB || pixelFormat == PixelFormatV3.PVRTC4bppRGBA)
+			{
+				return (width * height / 2);
+			}
+
+			throw new NotImplementedException();
+		}
 	}
 }

@@ -35,6 +35,8 @@ namespace tests
 
 			Assert.AreEqual(1, metadata.GetElements().Length);
 			Assert.AreEqual(MetadataTypeV3.LogicalOrientation, metadata.GetElements()[0].GetMetadataType());
+
+			Assert.AreEqual(131_072, pvr.GetTextureData().Length);
 		}
 
 		[Test]
