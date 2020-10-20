@@ -19,6 +19,9 @@ namespace tests
 
 			// Act
 			PVRContainerV2 container = new PVRContainerV2(fs);
+
+			fs.Close();
+
 			PVRHeaderV2 header = container.GetHeader();
 
 			// Assert
