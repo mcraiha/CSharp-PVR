@@ -15,15 +15,19 @@ namespace CSharp_PVR
 	{
 		public static PvrVersion DetectVersion(Stream inputStream)
 		{
-			if (IsV3FormatFile(inputStream, returnToOriginalPosition: true))
+			if (IsV3Format(inputStream, returnToOriginalPosition: true))
 			{
 				return PvrVersion.Version3;
+			}
+			else if (IsV2Format(inputStream, returnToOriginalPosition: true))
+			{
+				return PvrVersion.Version2;
 			}
 
 			return PvrVersion.Unknown;
 		}
 
-		public static bool IsV3FormatFile(Stream inputStream, bool returnToOriginalPosition = true)
+		public static bool IsV3Format(Stream inputStream, bool returnToOriginalPosition = true)
 		{
 			if (returnToOriginalPosition && !inputStream.CanSeek)
 			{
@@ -37,6 +41,34 @@ namespace CSharp_PVR
 			try
 			{
 				PVRContainerV3 containerV3 = new PVRContainerV3(inputStream);
+			}
+			catch
+			{
+				returnValue = false;
+			}
+
+			if (returnToOriginalPosition)
+			{
+				inputStream.Position = originalPosition;
+			}
+
+			return returnValue;
+		}
+
+		public static bool IsV2Format(Stream inputStream, bool returnToOriginalPosition = true)
+		{
+			if (returnToOriginalPosition && !inputStream.CanSeek)
+			{
+				throw new ArgumentException("Cannot return to original position since inputStream does not support seeking!");
+			}
+
+			long originalPosition = inputStream.Position;
+
+			bool returnValue = true;
+
+			try
+			{
+				PVRContainerV2 containerV2 = new PVRContainerV2(inputStream);
 			}
 			catch
 			{
