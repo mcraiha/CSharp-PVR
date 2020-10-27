@@ -6,6 +6,8 @@ C# managed PVR texture container format reader / writer
 
 ## Build status
 
+![](https://github.com/mcraiha/CSharp-PVR/workflows/.NET%20Core/badge.svg)
+
 ## Why?
 
 Because I needed this for my personal project.
