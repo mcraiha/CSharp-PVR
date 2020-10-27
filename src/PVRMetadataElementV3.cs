@@ -9,13 +9,39 @@ namespace CSharp_PVR
 	/// </summary>
 	public enum MetadataTypeV3 : uint
 	{
+		/// <summary>
+		/// Atlas limits
+		/// </summary>
 		AtlasLimits = 0,
+
+		/// <summary>
+		/// Normal map info
+		/// </summary>
 		NormalMapInfo = 1,
+		
+		/// <summary>
+		/// Cubemap orientation
+		/// </summary>
 		CubemapOrientation = 2,
+
+		/// <summary>
+		/// Logical orientation
+		/// </summary>
 		LogicalOrientation = 3,
+
+		/// <summary>
+		/// Border sizes
+		/// </summary>
 		BorderSizes = 4,
+
+		/// <summary>
+		/// Padding data
+		/// </summary>
 		PaddingData = 5,
 
+		/// <summary>
+		/// Unknown
+		/// </summary>
 		Unknown = uint.MaxValue,
 	}
 
@@ -48,6 +74,11 @@ namespace CSharp_PVR
 			return this.dataAsByteArray;
 		}
 
+		/// <summary>
+		/// Constructor for PVR metadata element V3
+		/// </summary>
+		/// <param name="inputStream">Input stream</param>
+		/// <param name="leaveStreamOpen">Leave stream open after reading</param>
 		public PVRMetadataElementV3(Stream inputStream, bool leaveStreamOpen = true)
 		{
 			using (BinaryReader reader = new BinaryReader(inputStream, System.Text.Encoding.UTF8, leaveOpen: leaveStreamOpen))
@@ -94,6 +125,12 @@ namespace CSharp_PVR
 			}
 		}
 
+		/// <summary>
+		/// Constructor for PVR metadata element V3
+		/// </summary>
+		/// <param name="inputData">Input data byte array</param>
+		/// <param name="index">Start index</param>
+		/// <param name="count">How many bytes to read</param>
 		public PVRMetadataElementV3(byte[] inputData, int index, int count) : this(new MemoryStream(inputData, index, count, writable: false))
 		{
 

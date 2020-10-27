@@ -3,16 +3,27 @@ using System.IO;
 
 namespace CSharp_PVR
 {
+	/// <summary>
+	/// PVR container for V2 files
+	/// </summary>
 	sealed public class PVRContainerV2
 	{
 		private readonly PVRHeaderV2 headerV2;
 		private readonly byte[] textureData;
 
+		/// <summary>
+		/// Get header
+		/// </summary>
+		/// <returns>PVRHeaderV2</returns>
 		public PVRHeaderV2 GetHeader()
 		{
 			return this.headerV2;
 		}
 
+		/// <summary>
+		/// Construct PVRContainerV2 from input stream
+		/// </summary>
+		/// <param name="inputStream">Input stream</param>
 		public PVRContainerV2(Stream inputStream)
 		{
 			this.headerV2 = new PVRHeaderV2(inputStream);
@@ -27,6 +38,10 @@ namespace CSharp_PVR
 			}
 		}
 
+		/// <summary>
+		/// Construct PVRContainerV2 from byte array
+		/// </summary>
+		/// <param name="inputBytes">Byte array</param>
 		public PVRContainerV2(byte[] inputBytes)
 		{
 			if (inputBytes == null)

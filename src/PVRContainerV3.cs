@@ -4,27 +4,47 @@ using System.Collections.Generic;
 
 namespace CSharp_PVR
 {
+	/// <summary>
+	/// PVR container for V3 files
+	/// </summary>
 	sealed public class PVRContainerV3
 	{
 		private readonly PVRHeaderV3 headerV3;
 		private readonly PVRMetadataV3 metadataV3;
 		private readonly List<byte[]> textureData;
 
+		/// <summary>
+		/// Get header
+		/// </summary>
+		/// <returns>PVRHeaderV3</returns>
 		public PVRHeaderV3 GetHeader()
 		{
 			return this.headerV3;
 		}
 
+		/// <summary>
+		/// Get metadata
+		/// </summary>
+		/// <returns>PVRMetadataV3</returns>
 		public PVRMetadataV3 GetMetadata()
 		{
 			return this.metadataV3;
 		}
 
+		/// <summary>
+		/// Get texture data for certain mipmap level
+		/// </summary>
+		/// <param name="mipMapLevel">Mipmap level, default level 0</param>
+		/// <returns>Byte array</returns>
 		public byte[] GetTextureData(int mipMapLevel = 0)
 		{
 			return this.textureData[mipMapLevel];
 		}
 
+		/// <summary>
+		/// Construct PVRContainerV3 from input stream
+		/// </summary>
+		/// <param name="inputStream">Input stream</param>
 		public PVRContainerV3(Stream inputStream)
 		{
 			if (inputStream == null)
@@ -54,6 +74,10 @@ namespace CSharp_PVR
 			}
 		}
 
+		/// <summary>
+		/// Construct PVRContainerV3 from byte array
+		/// </summary>
+		/// <param name="inputBytes">Byte array</param>
 		public PVRContainerV3(byte[] inputBytes)
 		{
 			if (inputBytes == null)

@@ -4,6 +4,9 @@ using System.Collections;
 
 namespace CSharp_PVR
 {
+	/// <summary>
+	/// Pixel format for V2 input
+	/// </summary>
 	public enum PixelFormatV2 : byte
 	{
 		ARGB4444 = 0x0,
@@ -64,10 +67,19 @@ namespace CSharp_PVR
 		YUY2 = 0x46
 	}
 
+	/// <summary>
+	/// PVR V2 header
+	/// </summary>
 	sealed public class PVRHeaderV2
 	{
+		/// <summary>
+		/// Valid header size in bytes
+		/// </summary>
 		public const uint validHeaderSizeInBytes = 52;
 
+		/// <summary>
+		/// Valid file identifier
+		/// </summary>
 		public const uint validFileIdentifier = 0x21525650;
 
 		private readonly uint height;
@@ -202,6 +214,11 @@ namespace CSharp_PVR
 			return this.numberOfSurfaces;
 		}
 
+		/// <summary>
+		/// Constructor for PVR header V2
+		/// </summary>
+		/// <param name="input">Input stream</param>
+		/// <param name="leaveStreamOpen">Leave stream open after reading it</param>
 		public PVRHeaderV2(Stream input, bool leaveStreamOpen = true)
 		{
 			if (input == null)

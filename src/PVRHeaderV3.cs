@@ -120,21 +120,37 @@ namespace CSharp_PVR
 		private readonly uint mipMapCount;
 		private readonly uint metaDataSizeInBytes;
 
+		/// <summary>
+		/// Get texture flags
+		/// </summary>
+		/// <returns>TextureFlags</returns>
 		public TextureFlags GetTextureFlags()
 		{
 			return this.textureFlags;
 		}
 
+		/// <summary>
+		/// Get pixel format
+		/// </summary>
+		/// <returns>PixelFormatV3</returns>
 		public PixelFormatV3 GetPixelFormat()
 		{
 			return this.pixelFormat;
 		}
 
+		/// <summary>
+		/// Get color space
+		/// </summary>
+		/// <returns>ColorSpace</returns>
 		public ColorSpace GetColorSpace()
 		{
 			return this.colorSpace;
 		}
 
+		/// <summary>
+		/// Get channel type
+		/// </summary>
+		/// <returns>ChannelType</returns>
 		public ChannelType GetChannelType()
 		{
 			return this.channelType;
@@ -203,6 +219,10 @@ namespace CSharp_PVR
 			return this.metaDataSizeInBytes;
 		}
 
+		/// <summary>
+		/// Constructor for PVR header V3
+		/// </summary>
+		/// <param name="inputStream">Input stream</param>
 		public PVRHeaderV3(Stream inputStream)
 		{
 			if (inputStream == null)
@@ -292,6 +312,10 @@ namespace CSharp_PVR
 			}
 		}
 
+		/// <summary>
+		/// Constructor for PVR header V3
+		/// </summary>
+		/// <param name="inputBytes">Input byte array</param>
 		public PVRHeaderV3(byte[] inputBytes)
 		{
 			int currentIndex = 0;
@@ -391,6 +415,13 @@ namespace CSharp_PVR
 			this.metaDataSizeInBytes = BitConverter.ToUInt32(inputBytes, currentIndex);
 		}
 
+		/// <summary>
+		/// Calculate how many bytes of data certain mip map level should take
+		/// </summary>
+		/// <param name="pixelFormat">Pixel format</param>
+		/// <param name="width">Width</param>
+		/// <param name="height">Height</param>
+		/// <returns>Amount of bytes needed for mipmap level</returns>
 		public static int CalculateBytesOfData(PixelFormatV3 pixelFormat, int width, int height)
 		{
 			if (pixelFormat == PixelFormatV3.PVRTC2bppRGB || pixelFormat == PixelFormatV3.PVRTC2bppRGBA)

@@ -4,15 +4,27 @@ using System.Collections.Generic;
 
 namespace CSharp_PVR
 {
+	/// <summary>
+	/// PVR metadata V3
+	/// </summary>
 	sealed public class PVRMetadataV3
 	{
 		private readonly PVRMetadataElementV3[] elements;
 
+		/// <summary>
+		/// Get single elements of metadata as array 
+		/// </summary>
+		/// <returns>PVRMetadataElementV3[]</returns>
 		public PVRMetadataElementV3[] GetElements()
 		{
 			return this.elements;
 		}
 
+		/// <summary>
+		/// Constuctor for PVR metadata V3
+		/// </summary>
+		/// <param name="inputStream">Input stream</param>
+		/// <param name="length">How many bytes should the metadata be</param>
 		public PVRMetadataV3(Stream inputStream, int length)
 		{
 			if (inputStream == null)
@@ -50,6 +62,12 @@ namespace CSharp_PVR
 			this.elements = elements.ToArray();
 		}
 
+		/// <summary>
+		/// Constuctor for PVR metadata V3
+		/// </summary>
+		/// <param name="inputBytes">Input bytes array</param>
+		/// <param name="startPos">Start position</param>
+		/// <param name="length">How many bytes to read</param>
 		public PVRMetadataV3(byte[] inputBytes, int startPos, int length)
 		{
 			if (inputBytes == null)
