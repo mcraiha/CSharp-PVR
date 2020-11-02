@@ -9,61 +9,279 @@ namespace CSharp_PVR
 	/// </summary>
 	public enum PixelFormatV2 : byte
 	{
+		/// <summary>
+		/// ARGB 4444
+		/// </summary>
 		ARGB4444 = 0x0,
+
+		/// <summary>
+		/// ARGB 1555
+		/// </summary>
 		ARGB1555 = 0x1,
+
+		/// <summary>
+		/// RGB 565
+		/// </summary>
 		RGB565 = 0x2,
+
+		/// <summary>
+		/// RGB 555
+		/// </summary>
 		RGB555 = 0x3,
+
+		/// <summary>
+		/// RGB 888
+		/// </summary>
 		RGB888 = 0x4,
+
+		/// <summary>
+		/// ARGB 8888
+		/// </summary>
 		ARGB8888 = 0x5,
+
+		/// <summary>
+		/// ARGB 8332
+		/// </summary>
 		ARGB8332 = 0x6,
+
+		/// <summary>
+		/// I 8
+		/// </summary>
 		I8 = 0x7,
+
+		/// <summary>
+		/// AI 88
+		/// </summary>
 		AI88 = 0x8,
+
+		/// <summary>
+		/// 1BPP
+		/// </summary>
 		ONEBPP = 0x9,
+
+		/// <summary>
+		/// (V,Y1,U,Y0)
+		/// </summary>
 		V_Y1_U_Y0 = 0xA,
+
+		/// <summary>
+		/// (Y1,V,Y0,U)
+		/// </summary>
 		Y1_V_Y0_U = 0xB,
+
+		/// <summary>
+		/// PVRTC2
+		/// </summary>
 		PVRTC2 = 0xC,
+
+		/// <summary>
+		/// PVRTC4
+		/// </summary>
 		PVRTC4 = 0xD,
+
+		/// <summary>
+		/// ARGB 4444
+		/// </summary>
 		ARGB4444_2 = 0x10,
+
+		/// <summary>
+		/// ARGB 1555
+		/// </summary>
 		ARGB1555_2 = 0x11,
+
+		/// <summary>
+		/// ARGB 8888
+		/// </summary>
 		ARGB8888_2 = 0x12,
+
+		/// <summary>
+		/// RGB 565
+		/// </summary>
 		RGB565_2 = 0x13,
+
+		/// <summary>
+		/// RGB 555
+		/// </summary>
 		RGB555_2 = 0x14,
+
+		/// <summary>
+		/// RGB 888
+		/// </summary>
 		RGB888_2 = 0x15,
+
+		/// <summary>
+		/// I 8
+		/// </summary>
 		I8_2 = 0x16,
+
+		/// <summary>
+		/// AI 88
+		/// </summary>
 		AI88_2 = 0x17,
+
+		/// <summary>
+		/// PVRTC2
+		/// </summary>
 		PVRTC2_2 = 0x18,
+
+		/// <summary>
+		/// PVRTC4
+		/// </summary>
 		PVRTC4_2 = 0x19,
+
+		/// <summary>
+		/// BGRA 8888
+		/// </summary>
 		BGRA8888 = 0x1A,
+
+		/// <summary>
+		/// DXT1
+		/// </summary>
 		DXT1 = 0x20,
+
+		/// <summary>
+		/// DXT2
+		/// </summary>
 		DXT2 = 0x21,
+
+		/// <summary>
+		/// DXT3
+		/// </summary>
 		DXT3 = 0x22,
+
+		/// <summary>
+		/// DXT4
+		/// </summary>
 		DXT4 = 0x23,
+
+		/// <summary>
+		/// DXT5
+		/// </summary>
 		DXT5 = 0x24,
+
+		/// <summary>
+		/// RGB 332
+		/// </summary>
 		RGB332 = 0x25,
+
+		/// <summary>
+		/// AL 44
+		/// </summary>
 		AL44 = 0x26,
+
+		/// <summary>
+		/// LVU 655
+		/// </summary>
 		LVU655 = 0x27,
 
+		/// <summary>
+		/// XLVU 8888
+		/// </summary>
 		XLVU8888 = 0x28,
+
+		/// <summary>
+		/// QWVU 8888
+		/// </summary>
 		QWVU8888 = 0x29,
+
+		/// <summary>
+		/// ABGR 2101010
+		/// </summary>
 		ABGR2101010 = 0x2A,
+
+		/// <summary>
+		/// ARGB 2101010
+		/// </summary>
 		ARGB2101010 = 0x2B,
+
+		/// <summary>
+		/// AWVU 2101010
+		/// </summary>
 		AWVU2101010 = 0x2C,
+
+		/// <summary>
+		/// GR 1616
+		/// </summary>
 		GR1616 = 0x2D,
+
+		/// <summary>
+		/// VU 1616
+		/// </summary>
 		VU1616 = 0x2E,
+
+		/// <summary>
+		/// ABGR 16161616
+		/// </summary>
 		ABGR16161616 = 0x2F,
+
+		/// <summary>
+		/// R 16F
+		/// </summary>
 		R16F = 0x30,
+
+		/// <summary>
+		/// GR 1616F
+		/// </summary>
 		GR1616F = 0x31,
+
+		/// <summary>
+		/// ABGR 16161616F
+		/// </summary>
 		ABGR16161616F = 0x32,
+
+		/// <summary>
+		/// R 32F
+		/// </summary>
 		R32F = 0x33,
+
+		/// <summary>
+		/// GR 3232F
+		/// </summary>
 		GR3232F = 0x34,
+
+		/// <summary>
+		/// ABGR 32323232F
+		/// </summary>
 		ABGR32323232F = 0x35,
+
+		/// <summary>
+		/// ETC
+		/// </summary>
 		ETC = 0x36,
+
+		/// <summary>
+		/// A 8
+		/// </summary>
 		A8 = 0x40,
+
+		/// <summary>
+		/// VU 88
+		/// </summary>
 		VU88 = 0x41,
+
+		/// <summary>
+		/// L 16
+		/// </summary>
 		L16 = 0x42,
+
+		/// <summary>
+		/// L 8
+		/// </summary>
 		L8 = 0x43,
+
+		/// <summary>
+		/// AL 88
+		/// </summary>
 		AL88 = 0x44,
+
+		/// <summary>
+		/// UYVY
+		/// </summary>
 		UYVY = 0x45,
+
+		/// <summary>
+		/// YUY2
+		/// </summary>
 		YUY2 = 0x46
 	}
 
