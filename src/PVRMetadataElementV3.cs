@@ -86,7 +86,7 @@ namespace CSharp_PVR
 				byte[] fourCC = reader.ReadBytes(4);
 				if (!StructuralComparisons.StructuralEqualityComparer.Equals(onlyValidFourcc, fourCC))
 				{
-					string invalidValueAsHex = String.Concat(Array.ConvertAll(fourCC, x => x.ToString("X2")));
+					string invalidValueAsHex = string.Concat(Array.ConvertAll(fourCC, x => x.ToString("X2")));
 					throw new ArgumentException($"Not valid FourCC for Metadata, invalid array is {invalidValueAsHex}");
 				}
 
