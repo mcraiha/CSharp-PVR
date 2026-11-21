@@ -46,12 +46,9 @@ namespace tests
 			string pvrFilename = "hotair.4bpp.pvr";
 
 			// Act
-			PVRContainerV3 pvr = null;
-			using (FileStream fs = new FileStream(pvrFilename, FileMode.Open))
-			{
-				pvr = new PVRContainerV3(fs);		
-			}
-
+			using FileStream fs = new FileStream(pvrFilename, FileMode.Open);
+			PVRContainerV3 pvr = new PVRContainerV3(fs);		
+			
 			PVRHeaderV3 header = pvr.GetHeader();
 			PVRMetadataV3 metadata = pvr.GetMetadata();
 
