@@ -69,7 +69,11 @@ namespace CSharp_PVR
 				int currentHeight = (int)this.headerV3.GetHeight() / divisor;
 				int bytesForThisLevel = PVRHeaderV3.CalculateBytesOfData(this.headerV3.GetPixelFormat(), currentWidth, currentHeight);
 				byte[] byteArray = new byte[bytesForThisLevel];
+				#if NET10_0_OR_GREATER
+				inputStream.ReadExactly(byteArray, 0, bytesForThisLevel);
+				#else
 				inputStream.Read(byteArray, 0, bytesForThisLevel);
+				#endif
 				this.textureData.Add(byteArray);
 			}
 		}
